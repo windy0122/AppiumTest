@@ -1,8 +1,7 @@
 # coding=utf-8
 from appium import webdriver
 import time
-from selenium.webdriver.support.ui import WebDriverWait
-from redis_code import get_code
+from util.redis_code import get_code
 
 
 desired_caps = {
