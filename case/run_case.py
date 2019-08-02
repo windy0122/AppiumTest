@@ -3,7 +3,7 @@ import sys
 sys.path.append('../../AppiumTest')
 from appium import webdriver
 import time
-from util.redis_code import get_code
+from util.redis_code import RedisCode
 from business.register_business import RegisterBusiness
 import unittest
 
@@ -27,13 +27,17 @@ class FirstCase(unittest.TestCase):
         self.driver = webdriver.Remote('http://127.0.0.1:4723/wd/hub', desired_caps)
         self.driver.implicitly_wait(10)
         self.register = RegisterBusiness(self.driver)
+        self.code_num = RedisCode()
+        self.register_phone = '19911111112'
 
     def tearDown(self):
         time.sleep(5)
         self.driver.quit()
 
     def test_register(self):
-        self.register.use_base('东方名剪', '吴迪', '123456789', '19911111112', get_code('19911111112'), '123456')
+        self.register.use_base('东方名剪', '吴迪', '123456789', self.register_phone, '123456')
+        # self.register.use_owner_info(self.register_phone, '123456')
+        self.register.use_code_num(self.code_num.get_code(self.register_phone))
 
 
 if __name__ == '__main__':
