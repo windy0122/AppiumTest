@@ -3,16 +3,16 @@ import redis
 
 class RedisCode(object):
     def __init__(self):
-        self.host_test = '10.12.64.212'
-        self.port_test = '6379'
+        self.host_test = 'xxxxxx'
+        self.port_test = 'xxxxxxxxxx'
 
-        self.host_uat = '10.12.64.205'
-        self.port_uat = '6889'
-        self.password_uat = 'v3X7yNFK'
+        self.host_uat = 'xxxxxxxxxxxx'
+        self.port_uat = 'xxxxxxxxxxx'
+        self.password_uat = 'xxxxxxxxxxx'
 
     # login_num = '19911111111'
 
-    # pool = redis.ConnectionPool(host='10.12.64.212', port='6379', db=4)
+    # pool = redis.ConnectionPool(host='xxxxxxxxx', port='xxxxxxxx', db=4)
     # r = redis.StrictRedis(connection_pool=pool)
 
     def get_code(self, login_num):
